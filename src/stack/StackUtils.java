@@ -20,11 +20,36 @@ public class StackUtils {
 		
 	}
 	
+	public int[] nextGreaterElement(int[] arr) {
+		Stack<Integer> st = new Stack<>();
+		int[] result = new int[arr.length];
+		for(int i=arr.length-1; i>=0; i--) {
+			if(!st.isEmpty()) {
+				while(!st.isEmpty() && st.peek()<=arr[i]) {
+					st.pop();
+				}
+			}
+			if(st.isEmpty()) {
+				result[i] = -1;
+			}
+			else {
+				result[i] = st.peek();
+			}
+			st.push(arr[i]);
+		}
+		return result;
+	}
+	
+	
+	
 	public static void main(String[] args) {
 		StackUtils st = new StackUtils();
 		String str = "ABCD";
 		System.out.println(st.reverseString(str));
-
+		int[] arr = {4,7,3,4,8,1};
+		for(int a: st.nextGreaterElement(arr)) {
+			System.out.print(a);
+		}
 	}
 
 }
