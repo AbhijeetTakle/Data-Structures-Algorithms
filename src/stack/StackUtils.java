@@ -37,6 +37,7 @@ public class StackUtils {
 			}
 			st.push(arr[i]);
 		}
+		st.sort(null);
 		return result;
 	}
 	
@@ -50,6 +51,7 @@ public class StackUtils {
 		for(int a: st.nextGreaterElement(arr)) {
 			System.out.print(a);
 		}
+		
 	}
 
 }
