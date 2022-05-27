@@ -209,6 +209,14 @@ public class FoundationProblems {
 		return mul;
 	}
 	
+	public int factorial(int n) {
+		if(n == 0) {
+			return 1;
+		}else {
+			return n * factorial(n-1);
+		}
+	}
+	
 	public static void main(String[] args) {
 		FoundationProblems fp = new FoundationProblems();
 		Scanner scn = new Scanner(System.in);
@@ -264,10 +272,13 @@ public class FoundationProblems {
 //		int b = scn.nextInt();
 //		System.out.println(fp.anyBaseSubtraction(n1, n2, b));
 		
-		int n1 = scn.nextInt();
-		int n2 = scn.nextInt();
-		int b = scn.nextInt();
-		System.out.println(fp.anyBaseMultilication(n1, n2, b));
+//		int n1 = scn.nextInt();
+//		int n2 = scn.nextInt();
+//		int b = scn.nextInt();
+//		System.out.println(fp.anyBaseMultilication(n1, n2, b));
+		
+		int n = scn.nextInt();
+		System.out.println(fp.factorial(n));
 		
 		scn.close();
 	}
