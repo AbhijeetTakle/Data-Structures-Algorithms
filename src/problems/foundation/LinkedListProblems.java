@@ -269,8 +269,15 @@ public class LinkedListProblems {
 		return list1;
 	}
 	
-	  
-
+	public void reverseListData(ListNode node, Queue<Integer> que) {
+		if(node == null) {
+			return;
+		}
+		que.offer(node.data);
+		reverseListData(node.next, que);
+		node.data = que.poll();		
+	}
+	
 	public static void main(String[] args) {
 		LinkedListProblems llp = new LinkedListProblems();
 		Linkedlist list1 = llp.new Linkedlist();
@@ -323,9 +330,10 @@ public class LinkedListProblems {
 //		list2 = llp.reverseLinkedList(list2.head);
 //		list2.tail.next = null;
 //		llp.displayLinkedlist(list2);
-		
-		
-		
+	
+		Queue<Integer> que = new LinkedList<>();
+		llp.reverseListData(list2.head, que);
+		llp.displayLinkedlist(list2);
 	}
 
 }
